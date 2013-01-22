@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+<head> <meta charset="utf8"> </head>
+
+<body>
+
+<h1>Cynthia Mullis - Assignment #2</h1>
+
+<script src="http://thomaswilburn.net/sccc/web150/assignment_data/sales.js" > </script>
+
+<script>
+
+/*
+Assignment #2: Business Intelligence
+
+For this assignment, imagine that you're experimenting with name-your-own-price revenue models.
+You've just run a quick promotion that sold 1,000 widgets, and now you'd like to form some conclusions about what your customers thought they were worth. 
+
+*/
+
+// -----------  How many widgets and total sales-------------- //
+var totalSales=0;
+for (var i=0; i < sales.length; i++){
+	totalSales = totalSales + sales[i];
+}
+console.log("The total number of widgets sold is: " + sales.length);
+console.log("The total amount from widget sales is: $" + totalSales);
+
+
+// --------- If a widget costs $10 each to make, what is the profit or loss? ------ //
+var prodCost = sales.length * 10;
+var profitLoss = totalSales - prodCost;
+console.log("The production cost @ $10/widget is: $" + prodCost);
+console.log("The profit/loss from the promotion is: $" + profitLoss);
+
+
+// -----------  What is the average price paid by any given customer? -------------- //
+var average = totalSales /sales.length;
+average = Math.round(average * 100)/100;
+console.log("The average price per widget is: $" + average);
+
+
+// ------------- What is the highest price paid? ------------------ //
+var priceHigh = -Infinity;
+var highestIndex=0;
+for(var i=0; i< sales.length; i++) {
+	var widgetHigh=sales[i];
+		if (priceHigh < widgetHigh ){
+				priceHigh = widgetHigh;
+				highestIndex= i;
+		}
+}
+//console.log("The highest price paid for a widget is $" + sales[highestIndex]);
+console.log("The highest price paid for a widget is $" + priceHigh);
+
+
+// ------------- What is the lowest price paid? ------------------ //
+var priceLow = Infinity;// just a guess, but the opposite of -Infinity seems to be Infinity
+var lowestIndex=0;
+for(var i=0; i< sales.length; i++) {
+	var widgetLow=sales[i];
+		if (priceLow > widgetLow ){
+				priceLow = widgetLow;
+				lowestIndex= i;
+		}
+}
+console.log("The lowest price paid for a widget is $" + sales[lowestIndex]);
+//console.log("The lowest price paid for a widget is $" + priceLow);
+
+
+// ------------- How many people paid less than $10 per widget? -------------------- //
+var cheapskate =[];
+for (var i=0; i < sales.length; i++){
+	var widgetPrice = sales[i];
+	if (widgetPrice < 10){
+		cheapskate.push(widgetPrice);
+	}
+}
+console.log("The number of people who paid less than $10 per widget is " + cheapskate.length);
+
+// ----- What was the most popular pricing range (i.e., $10-20, $40-50)? ---------- //
+
+// Some kind of nested else if loop idea needs to happen here.
+// I've tried a number of things but nothings has worked yet. I'm getting tangled in the logic and loops.
+// once the loop is working then compare the values from each range to determine the highest
+
+var priceRange =[];
+for (var i=0; i < sales.length; i++){
+	var range = sales[i];	
+	if (range >= 1 && range <= 500){
+		priceRange.push(range);
+	}
+}
+console.log("The number of people who paid between $1 & $500 per widget is " + priceRange.length);
+
+/*
+
+var priceRange2 =[];
+for (var i=0; i < sales.length; i++){
+	var range2 = sales[i];	
+	if (range2 >= 10 && range2 <= 19){
+		priceRange2.push(range2);
+		console.log("The number of people who paid between $10 & $19 per widget is " + priceRange2.length)
+	}else if (range2 >= 20 && range2 <= 29){
+		priceRange2.push(range2);
+		console.log("The number of people who paid between $20 & $29 per widget is " + priceRange2.length)
+	}else if (range2 >= 30 && range2 <= 39){
+		priceRange2.push(range2);
+		console.log("The number of people who paid between $20 & $29 per widget is " + priceRange2.length)
+	}
+		
+}//end for loop
+ */
+
+// --------- What was the most common price offered for a widget? Mean/Median/Mode?  ----------------- //
+
+
+</script>
+
+</body>
+
+</html>
+
