@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+
+<script src="http://thomaswilburn.net/sccc/web150/assignment_data/quakes.js" ></script>
+
+<script>
+/*
+Assignment #3: Shakedown Tour
+Objects are like arrays, but with named properties instead of numbered items.
+1. Load this script file to create a quakes variable containing an array of earthquake objects.
+2. Practice looping thru objects (associative arrays) to examine the following info:
+
+Each object has the same properties:
+    src: which station detected the quake
+    region: where the quake was generally located
+    long and lat: the coordinates where the quake originated
+    magnitude: the size of the earthquake 
+
+Using loops to examine all of the earthquakes in the list, answer the following questions:
+    What was the highest magnitude quake, and where was it located?
+    How many earthquakes had a magnitude higher than 4.0?
+    How many earthquakes took place in the "Seattle-Tacoma urban area, Washington"?
+     (Be careful with the spelling and capitalization--it must be exact.) 
+    
+*/
+
+/*
+/////////////////////////////////////////////////////////////
+I've been out of town for several days and haven't had
+a chance to do anything this this assignment yet.
+I plan to catch up on it as soon as I can...by the end of 
+Feb. 4 at the latest.
+///////////////////////////////////////////////////////////////
+*/
+
+
+////// --------- from Jan. 22 lecture ----------- ///////
+var obj = {};
+obj["key"] = "value";
+console.log(obj["key"]);
+console.log(obj);
+
+var city = {};
+city["name"] = "Seattle";
+city["pop"] = 54000;
+city["arson"] = 79;
+console.log(city);
+
+var lookup = "arson";
+city[lookup] == city["arson"];
+
+city.name == city["name"];
+city.state = "Washington";
+
+console.log(city.country);
+city.country = "Canada";
+
+if (city.country == undefined) { // if (!city.country) { ...
+	city.country = "USA! USA!";
+}
+
+var wallace = {
+	numOfLegs: 4,
+	hasFleas: false,
+	hasSpots: true,
+	hasTeeth: true,
+	hasEars: true,
+	name: "Wallace von Frankenstein",
+	walkTimes: ["6:00am", "5:00pm", "11:00pm"],
+	relationships: {
+		sister: "Neko",
+		dad: "Thomas",
+		mom: "Belle"
+	}
+};
+wallace.relationships.self = wallace;
+//wallace.numOfLegs = 4;
+//wallace.hasFleas = false;
+var part = prompt("What part of the dog do you want to know about?");
+console.log(wallace["has" + part]);
+for (var i = 0; i < wallace.walkTimes.length; i++) {
+	console.log("Wallace is walked at: " + wallace.walkTimes[i]);
+}
+
+var groceries = {};
+var length = prompt("How many items do you need to buy?");
+length = parseInt(length, 10);
+for (var i = 0; i < length; i++) {
+	var name = prompt("What do you need from the store?");
+	var quantity = prompt("How many do you need?");
+	groceries[name] = quantity;
+}
+
+var cities = [{
+	name: "Seattle",
+	population: 50000,
+	arson: 79,
+	avgIncome: 30000
+}, {
+	name: "Port Angeles",
+	population: 5000,
+	arson: 1,
+	avgIncome: 0
+}, {
+	name: "Tacoma",
+	population: 30000,
+	arson: 58,
+	avgIncome: 28000
+}];
+var highest = -Infinity;
+var highestCity;
+for (var i = 0; i < cities.length; i++) {
+	var item = cities[i];
+	if (item.arson > highest) {
+		highest = item.arson;
+		highestCity = item;
+	}
+}
+console.log(highestCity.name, highestCity.avgIncome);
+
+</script>
+</body>
+</html>
